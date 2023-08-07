@@ -70,3 +70,22 @@ You can also communicate with other developers by the following methods:
 
 - Post questions on [**Stackoverflow**](http://stackoverflow.com) using [**
   dji-sdk**](http://stackoverflow.com/questions/tagged/dji-sdk) tag
+
+
+## Packaging a `debian` package 
+Below are simple instructions to generate a `.deb` package for this repo that can be distributed using apt.
+To use this package, first install it with `dpkg -i <nameOfDeb>.deb`. 
+In `CMakeLists.txt` do `find_package(PayloadSDK)` and link any targets with the appropriate  
+`target_include_directories(myTarget ${PayloadSDK_INCLUDE_DIRS})` and executables or libraries with
+`target_link_libraries(myTarget ${PayloadSDK_LIBRARIES})` 
+**Steps**
+0. `export VERSION=<someVersion>`
+1. `mkdir build && cd build` 
+2. `cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install`
+3. `cmake --build . --target all`
+4. `make install` 
+5. `cpack .`
+6. Locate and upload `PayloadSDK*-Linux.deb` and use as needed
+
+## TODO
+- add support for building automatically in CI and pushing to repo
