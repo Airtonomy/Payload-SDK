@@ -81,11 +81,9 @@ In `CMakeLists.txt` do `find_package(PayloadSDK)` and link any targets with the 
 **Steps**
 0. `export VERSION=<someVersion>`
 1. `mkdir build && cd build` 
-2. `cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install`
-3. `cmake --build . --target all`
-4. `make install` 
-5. `cpack .`
-6. Locate and upload `PayloadSDK*-Linux.deb` and use as needed
+2. `cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RelWithDebInfo`
+3. `cpack .`
+4. Locate and upload `PayloadSDK*-Linux.deb` and use as needed
 
 ## TODO
 - add support for building automatically in CI and pushing to repo

@@ -1,10 +1,8 @@
-project(OSAL_HAL_BUILDING)
-
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 ### CONFIGURE OSAL HEADERS, and static-compile a library
-set(OSAL_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/samples/sample_c++/platform/linux/common)
+set(OSAL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/samples/sample_c++/platform/linux/common)
 set(OSAL_DIR ${OSAL_INCLUDE_DIRS}/osal)
 file(GLOB MODULE_OSAL_SRCS ${OSAL_DIR}/*.c)
 file(GLOB OSAL_INCS ${OSAL_DIR}/*.h)
@@ -27,7 +25,7 @@ add_definitions(-DLIBUSB_INSTALLED)
 
 
 # TODO: change include dir based on platform ( i.e. likely need aarch64 vs amd64)
-set(HAL_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/samples/sample_c++/platform/linux/manifold2)
+set(HAL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/samples/sample_c++/platform/linux/manifold2)
 set(HAL_DIR ${HAL_INCLUDE_DIRS}/hal)
 file(GLOB MODULE_HAL_SRCS ${HAL_DIR}/*.c)
 file(GLOB HAL_INCS ${HAL_DIR}/*.h)

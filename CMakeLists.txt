@@ -73,6 +73,7 @@ if (USE_SYSTEM_ARCH MATCHES LINUX)
 
     set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0,libopencv-dev,ffmpeg,libopus0")
     set(CPACK_GENERATOR "DEB")
+    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "The Payload-SDK Library")
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "dev@airtonomy.ai") #required
     include(CPack)
 
