@@ -18,11 +18,6 @@ set_target_properties(OSAL PROPERTIES PUBLIC_HEADER "${OSAL_INCS}")
 target_link_libraries(OSAL PRIVATE Threads::Threads)
 
 
-
-### CONFIGURE Platform HAL and static-compile the Library
-## TODO, write my own FINDLIBUSB.cmake, since no cmake config, and the one included with 
-## the PSDK is sketchy
-
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 message("Current Module Path ${CMAKE_MODULE_PATH}")
 # find_package(LIBUSB REQUIRED) # will use ${PROJECT_SOURCE_DIR}/FindLibUSB.cmake to set this...
