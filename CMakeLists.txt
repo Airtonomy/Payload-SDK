@@ -71,7 +71,8 @@ if (USE_SYSTEM_ARCH MATCHES LINUX)
     set(CPACK_PACKAGE_NAME "PayloadSDK")
     set(CPACK_PACKAGE_VERSION $ENV{VERSION})
 
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0,libopencv-dev,ffmpeg,libopus0")
+    # hal_network.h currently directly utilizes shell command `ifconfig` instead of sys-libs
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0,libopencv-dev,ffmpeg,libopus0,net-tools")
     set(CPACK_GENERATOR "DEB")
     set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "The Payload-SDK Library")
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "dev@airtonomy.ai") #required
