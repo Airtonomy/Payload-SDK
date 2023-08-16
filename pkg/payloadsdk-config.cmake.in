@@ -1,0 +1,17 @@
+# ensure threads is found for OSAL depends
+find_package(Threads REQUIRED)
+
+# Compute installation prefix relative to this file.
+include(${CMAKE_CURRENT_LIST_DIR}/OsalHalConfig.cmake)
+get_filename_component(_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
+get_filename_component(_prefix "${_dir}/../../.." ABSOLUTE)
+
+# Set the library location
+list( APPEND PayloadSDK_LIBRARIES 
+    "${_prefix}/lib/libpayloadsdk.a"
+    PayloadSDK::HAL
+    PayloadSDK::OSAL
+    )
+
+# set the header dirs
+set(PayloadSDK_INCLUDE_DIRS "${_prefix}/include/")
