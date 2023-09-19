@@ -25,7 +25,7 @@ add_definitions(-DLIBUSB_INSTALLED)
 
 
 # TODO: change include dir based on platform ( i.e. likely need aarch64 vs amd64)
-set(HAL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/samples/sample_c++/platform/linux/manifold2)
+set(HAL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/samples/sample_c++/platform/linux/nvidia_jetson)
 set(HAL_DIR ${HAL_INCLUDE_DIRS}/hal)
 file(GLOB MODULE_HAL_SRCS ${HAL_DIR}/*.c)
 file(GLOB HAL_INCS ${HAL_DIR}/*.h)
