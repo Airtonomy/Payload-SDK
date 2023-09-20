@@ -82,7 +82,6 @@ In `CMakeLists.txt` do `find_package(PayloadSDK)` and link any targets with the 
 `target_include_directories(myTarget ${PayloadSDK_INCLUDE_DIRS})` and executables or libraries with
 `target_link_libraries(myTarget ${PayloadSDK_LIBRARIES})` 
 **Steps**
-0. `export VERSION=<someVersion>`
 1. `mkdir build && cd build` 
 2. `cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RelWithDebInfo`
 3. `cpack .`
