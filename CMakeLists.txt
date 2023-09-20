@@ -58,15 +58,15 @@ if (USE_SYSTEM_ARCH MATCHES LINUX)
 
     # Configure files for find_package
     configure_file(
-        ${PROJECT_SOURCE_DIR}/pkg/payloadsdk-config.cmake.in
-        ${PROJECT_BINARY_DIR}/pkg/payloadsdk-config.cmake
+        ${PROJECT_SOURCE_DIR}/cmake/payloadsdk-config.cmake.in
+        ${PROJECT_BINARY_DIR}/cmake/payloadsdk-config.cmake
                    @ONLY)            
 
-    install(FILES ${PROJECT_BINARY_DIR}/pkg/payloadsdk-config.cmake
+    install(FILES ${PROJECT_BINARY_DIR}/cmake/payloadsdk-config.cmake
             DESTINATION lib/cmake/PayloadSDK)
 
-    include(${PROJECT_SOURCE_DIR}/pkg/payloadsdk_hal_osal.cmake)
-    include(${PROJECT_SOURCE_DIR}/pkg/ConfigureCPack.cmake)
+    include(${PROJECT_SOURCE_DIR}/cmake/payloadsdk_hal_osal.cmake)
+    include(${PROJECT_SOURCE_DIR}/cmake/ConfigureCPack.cmake)
 
 elseif (USE_SYSTEM_ARCH MATCHES RTOS)
     add_definitions(-DSYSTEM_ARCH_RTOS)

@@ -3,6 +3,7 @@ message("Configuring CPack for debian packaging")
 
 file(READ "psdk_lib/include/dji_version.h" SDK_VERSION)
 set(VERSION_REGEX "[0-9]+")
+
 string(REGEX MATCH "#define DJI_VERSION_MAJOR[ \t]+[0-9]+" DEF_VERSION "${SDK_VERSION}")
 string(REGEX MATCH "${VERSION_REGEX}" VERSION_MAJOR "${DEF_VERSION}")
 
@@ -17,11 +18,11 @@ message("PayloadSDK Version set too: ${PACKAGE_VERSION}")
 
 set(CPACK_PACKAGE_NAME "PayloadSDK")
 set(CPACK_PACKAGE_VERSION "${PACKAGE_VERSION}")
-
+set(CPACK_PACKAGE_DESCRIPTION "DJI's PayloadSDK With added CMake functionality")
 # hal_network.h currently directly utilizes shell command `ifconfig` instead of sys-libs
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0,libopencv-dev,ffmpeg,libopus0,net-tools")
 set(CPACK_GENERATOR "DEB")
-set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "The Payload-SDK Library")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The Payload-SDK Library")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "dev@airtonomy.ai") #required
 
 include(CPack)
