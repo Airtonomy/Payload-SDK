@@ -74,6 +74,19 @@ You can also communicate with other developers by the following methods:
 - Post questions on [**Stackoverflow**](http://stackoverflow.com) using [**
   dji-sdk**](http://stackoverflow.com/questions/tagged/dji-sdk) tag
 
+## Build and Run psdk samples
+
+1. git clone git@github.com:Airtonomy/Payload-SDK.git
+2. cd Payload-SDK
+3. mkdir -p build && cd build
+4. Install necessary libs with below commands:
+  * apt update
+  * sudo apt install ffmpeg
+  * sudo apt-get install libopus-dev
+5. cmake -DDJI_BUILD_SAMPLES=ON ..
+6. make all
+7. sudo ./bin/dji_sdk_demo_linux_cxx
+Before running step 7, make sure you connect your device which running this sample with M300 or M350, and started DJI Assistant2 simulator. 
 
 ## Packaging a `debian` package 
 Below are simple instructions to generate a `.deb` package for this repo that can be distributed using apt.
