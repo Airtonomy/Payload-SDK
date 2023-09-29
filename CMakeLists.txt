@@ -58,26 +58,15 @@ if (USE_SYSTEM_ARCH MATCHES LINUX)
 
     # Configure files for find_package
     configure_file(
-        ${PROJECT_SOURCE_DIR}/pkg/payloadsdk-config.cmake.in
-        ${PROJECT_BINARY_DIR}/pkg/payloadsdk-config.cmake
+        ${PROJECT_SOURCE_DIR}/cmake/payloadsdk-config.cmake.in
+        ${PROJECT_BINARY_DIR}/cmake/payloadsdk-config.cmake
                    @ONLY)            
 
-    install(FILES ${PROJECT_BINARY_DIR}/pkg/payloadsdk-config.cmake
+    install(FILES ${PROJECT_BINARY_DIR}/cmake/payloadsdk-config.cmake
             DESTINATION lib/cmake/PayloadSDK)
 
-    include(${PROJECT_SOURCE_DIR}/payloadsdk_hal_osal.cmake)
-
-    # TODO make optional env version
-    set(CPACK_PACKAGE_NAME "PayloadSDK")
-    set(CPACK_PACKAGE_VERSION $ENV{VERSION})
-
-    # hal_network.h currently directly utilizes shell command `ifconfig` instead of sys-libs
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0,libopencv-dev,ffmpeg,libopus0,net-tools")
-    set(CPACK_GENERATOR "DEB")
-    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "The Payload-SDK Library")
-    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "dev@airtonomy.ai") #required
-    include(CPack)
-
+    include(${PROJECT_SOURCE_DIR}/cmake/payloadsdk_hal_osal.cmake)
+    include(${PROJECT_SOURCE_DIR}/cmake/ConfigureCPack.cmake)
 
 elseif (USE_SYSTEM_ARCH MATCHES RTOS)
     add_definitions(-DSYSTEM_ARCH_RTOS)
