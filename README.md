@@ -1,6 +1,6 @@
 # DJI Payload SDK (PSDK)
 
-![](https://img.shields.io/badge/version-V3.6.0-purple.svg)
+![](https://img.shields.io/badge/version-V3.7.0-green.svg)
 ![](https://img.shields.io/badge/platform-linux_|_rtos-green.svg)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -15,44 +15,30 @@ Flight Controller, Payload Controller, Video Image Analysis Platform, Mapping Ca
 ## Documentation
 
 For full documentation, please visit
-the [DJI Developer Documentation](https://developer.dji.com/doc/payload-sdk-tutorial/en/). Documentation
-regarding the code can be found in the [PSDK API Reference](https://developer.dji.com/doc/payload-sdk-api-reference/en/)
+the [DJI Developer Documentation](https://developer.dji.com/doc/payload-sdk-tutorial/en/). Documentation regarding the
+code can be found in the [PSDK API Reference](https://developer.dji.com/doc/payload-sdk-api-reference/en/)
 section of the developer's website. Please visit
 the [Latest Version Information](https://developer.dji.com/doc/payload-sdk-tutorial/en/)
 to get the latest version information.
 
 ## Latest Release
 
-PSDK 3.6.0 was released on 18 Sep 2023. This version of Payload SDK mainly add some new features support and fixed some
-bugs.
-Please refer to the release notes for detailed changes list.
+PSDK 3.7.0 was released on 31 Oct 2023. This version of Payload SDK mainly add some new features support and fixed some
+bugs. Please refer to the release notes for detailed changes list.
 
-* Added support for multi-language display in HMS management.
-* Added support for PSDK Non-RC flight.
-* Added support for aircraft version number retrieval.
-* Added support for RTCM data subscription.
-* Added support for cloud-based custom small data communication on Matrice 30/30T PSDK.
-* Added Support for Matrice 30/30T PSDK speaker cloud integration.
-* Added support for custom widgets wayline actions on Matrice 30/30T and Mavic 3E/3T aircraft.
-* Added support for grayscale image retrieval on M350 RTK.
-* Added support for time synchronization on M300 RTK and Matrice 30/30T.
-* Added support for third-party firmware upgrades through M350 RTK E-Port.
-* Added support for SDK interconnection on Mavic 3E/3T.
-* Added support for hotspot orbit function on Mavic 3E/3T.
-* Added support for expanded camera and gimbal management interfaces.
-* Fixed issue with the 500m altitude limit for flight control across all models.
-* Fixed issue with incomplete small data transmission on specific models.
-* Fixed issue with H20 I-frame retrieval on M300 RTK.
-* Fixed issue with occasional custom widget display failure in DJI Pilot.
-* Fixed issues with multiple live stream retrieval on Matrice 30/30T.
-* Fixed issues with camera mode retrieval on Matrice 30/30T.
-* Fixed issues with camera focal length value retrieval on Matrice 30/30T.
-* Fixed issue with X-Port failed to self-check when both X-Port and SkyPort V2 were equipped on M300 RTK.
-* Fixed issue with gimbal angle subscription data mismatching App display on M300 RTK.
-* Fixed issue with flight control feature initialization failure on specific models after multiple calls.
-* Fixed compatibility issues with initialization failures on some HiSilicon platforms.
-* Optimized PSDK startup delays in single UART mode.
-* Optimized slow media file download speeds for Mavic 3E/3T on ethernet links.
+* Added L2 new camera model support
+* Added FlyCart 30 new drone model support
+* Added support for L2 subscription 3D point cloud data function
+* Added L2 support for downloading original point cloud files
+* Fixed the issue where M300 RTK and M350 RTK occasionally failed to negotiate load
+* Fixed an issue where some open source library conflicts caused flight control module registration to fail
+* Fixed the issue where PSDK obtains aircraft version numbers and displays them in reverse order
+* Fixed an issue where the zoom value range of some camera zoom rings was incorrect
+* Fixed the problem that the Sample value not updated when repeatedly running the M30/M3 series drone data subscription
+* Fixed compatibility issues on some ESP32 platforms
+* Optimize the return value prompt of MOP channel closing and destruction
+* Optimize the point of interest surround function Sample log prompt
+* Optimize compilation warning level
 
 ## License
 
@@ -73,32 +59,3 @@ You can also communicate with other developers by the following methods:
 
 - Post questions on [**Stackoverflow**](http://stackoverflow.com) using [**
   dji-sdk**](http://stackoverflow.com/questions/tagged/dji-sdk) tag
-
-## Build and Run psdk samples
-
-1. git clone git@github.com:Airtonomy/Payload-SDK.git
-2. cd Payload-SDK
-3. mkdir -p build && cd build
-4. Install necessary libs with below commands:
-  * apt update
-  * sudo apt install ffmpeg
-  * sudo apt-get install libopus-dev
-5. cmake -DDJI_BUILD_SAMPLES=ON ..
-6. make all
-7. sudo ./bin/dji_sdk_demo_linux_cxx
-Before running step 7, make sure you connect your device which running this sample with M300 or M350, and started DJI Assistant2 simulator. 
-
-## Packaging a `debian` package 
-Below are simple instructions to generate a `.deb` package for this repo that can be distributed using apt.
-To use this package, first install it with `dpkg -i <nameOfDeb>.deb`. 
-In `CMakeLists.txt` do `find_package(PayloadSDK)` and link any targets with the appropriate  
-`target_include_directories(myTarget ${PayloadSDK_INCLUDE_DIRS})` and executables or libraries with
-`target_link_libraries(myTarget ${PayloadSDK_LIBRARIES})` 
-**Steps**
-1. `mkdir build && cd build` 
-2. `cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RelWithDebInfo`
-3. `cpack .`
-4. Locate and upload `PayloadSDK*-Linux.deb` and use as needed
-
-## TODO
-- add support for building automatically in CI and pushing to repo
