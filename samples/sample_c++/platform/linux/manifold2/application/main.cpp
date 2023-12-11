@@ -105,15 +105,6 @@ start:
 
             USER_LOG_INFO("Start rtk positioning sample successfully");
             break;
-        case 'l':
-            returnCode = DjiTest_PositioningStartService();
-            if (returnCode != DJI_ERROR_SYSTEM_MODULE_CODE_SUCCESS) {
-                USER_LOG_ERROR("rtk positioning sample init error");
-                break;
-            }
-
-            USER_LOG_INFO("Start rtk positioning sample successfully");
-            break;
         default:
             break;
     }
