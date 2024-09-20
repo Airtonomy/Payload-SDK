@@ -30,7 +30,7 @@ jobs:
         default: ubuntu/focal
       package-path:
         type: string
-        default: dist/*.deb
+        default: build/*.deb
       resource_class:
         description: The architecture and size of the machine
         type: string
