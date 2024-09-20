@@ -76,7 +76,7 @@ workflows:
             - cloudsmith-creds     
           filters:  
             branches:
-              ignore: airtonomy/main
+              ignore: master
   release:
     jobs:
       - package:
