@@ -55,16 +55,16 @@ jobs:
             # echo ==========================================================
             docker run -v `pwd`:/workspace -w /workspace docker.cloudsmith.io/thread-one/release/flight-controller:23.25.1019 /bin/bash -c "apt-get update && apt-get install -y libusb-1.0-0-dev; mkdir build; cd build; export VERSION=$VERSION;cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RelWithDebInfo; cpack ."
 
-      # - cloudsmith/install-cli
-      # - cloudsmith/publish:
-      #     cloudsmith-repository:  << parameters.package-repo-org >>/<< parameters.package-repo >>
-      #     package-format: << parameters.package-format >>
-      #     package-distribution: << parameters.package-distribution >>
-      #     package-path: << parameters.source-path >>/<< parameters.package-path >>
-      # - store_test_results:
-      #     path: test_results
-      # - store_artifacts:
-      #     path: dist  
+      - cloudsmith/install-cli
+      - cloudsmith/publish:
+          cloudsmith-repository:  << parameters.package-repo-org >>/<< parameters.package-repo >>
+          package-format: << parameters.package-format >>
+          package-distribution: << parameters.package-distribution >>
+          package-path: << parameters.source-path >>/<< parameters.package-path >>
+      - store_test_results:
+          path: test_results
+      - store_artifacts:
+          path: dist  
 workflows:
   development:
     jobs:
