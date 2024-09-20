@@ -52,7 +52,7 @@ jobs:
             VERSION=$(git describe --tags)-<< parameters.resource_class >>
             echo ==========================================================
             echo build debian package
-            echo ==========================================================
+            # echo ==========================================================
             # docker run -v `pwd`:/workspace -w /workspace << parameters.docker-build-image >> /bin/bash -c ".circleci/package.sh $VERSION"
 
 
