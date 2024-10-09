@@ -382,7 +382,7 @@
 </VariousControls>
 </Aads>
 <LDads>
-<umfTarg>1</umfTarg>
+<umfTarg>0</umfTarg><ScatterFile>mdk_app.sct</ScatterFile>
 <Ropi>0</Ropi>
 <Rwpi>0</Rwpi>
 <noStLib>0</noStLib>
@@ -407,6 +407,11 @@
 <FileType>1</FileType>
 <FileName>cJSON.c</FileName>
 <FilePath>..\..\..\..\..\module_sample\utils\cJSON.c</FilePath>
+</File>
+<File>
+<FileType>1</FileType>
+<FileName>dji_config_manager.c</FileName>
+<FilePath>..\..\..\..\..\module_sample\utils\dji_config_manager.c</FilePath>
 </File>
 <File>
 <FileType>1</FileType>

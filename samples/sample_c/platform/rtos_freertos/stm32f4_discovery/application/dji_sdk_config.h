@@ -40,11 +40,11 @@ extern "C" {
 
 #define CONFIG_MODULE_SAMPLE_WIDGET_SPEAKER_ON
 
-#define CONFIG_MODULE_SAMPLE_DATA_TRANSMISSION_ON
+// #define CONFIG_MODULE_SAMPLE_DATA_TRANSMISSION_ON
 
-#define CONFIG_MODULE_SAMPLE_FC_SUBSCRIPTION_ON
+// #define CONFIG_MODULE_SAMPLE_FC_SUBSCRIPTION_ON
 
-// #define CONFIG_MODULE_SAMPLE_GIMBAL_EMU_ON
+#define CONFIG_MODULE_SAMPLE_GIMBAL_EMU_ON
 
 // #define CONFIG_MODULE_SAMPLE_CAMERA_ON
 
@@ -52,7 +52,7 @@ extern "C" {
 
 #define CONFIG_MODULE_SAMPLE_UPGRADE_ON
 
-#define CONFIG_MODULE_SAMPLE_HMS_CUSTOMIZATION_ON
+// #define CONFIG_MODULE_SAMPLE_HMS_CUSTOMIZATION_ON
 
 /*!< Attention: Please uncomment it in gps environment.
 * */
@@ -61,6 +61,11 @@ extern "C" {
 //#define CONFIG_MODULE_SAMPLE_POSITIONING_ON
 
 //#endif
+
+#define USER_FIRMWARE_MAJOR_VERSION         (1)
+#define USER_FIRMWARE_MINOR_VERSION         (33)
+#define USER_FIRMWARE_MODIFY_VERSION        (88)
+#define USER_FIRMWARE_DEBUG_VERSION         (99)
 
 /* Exported types ------------------------------------------------------------*/
 

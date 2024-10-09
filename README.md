@@ -1,8 +1,8 @@
 # DJI Payload SDK (PSDK)
 
-![](https://img.shields.io/badge/version-V3.8.0-cyan.svg)
-![](https://img.shields.io/badge/platform-linux_|_rtos-cyan.svg)
-![](https://img.shields.io/badge/license-MIT-blue.svg)
+![](https://img.shields.io/badge/version-V3.9.1-red.svg)
+![](https://img.shields.io/badge/platform-linux_|_rtos-blue.svg)
+![](https://img.shields.io/badge/license-MIT-purple.svg)
 
 ## What is the DJI Payload SDK?
 
@@ -23,20 +23,16 @@ to get the latest version information.
 
 ## Latest Release
 
-The latest release version of PSDK is 3.8.0. This version of Payload SDK mainly add some new features support and fixed some
+The latest release version of PSDK is 3.9.1. This version of Payload SDK mainly add some new features support and fixed some
 bugs. Please refer to the release notes for detailed changes list.
 
-* Added support for the M3D series models
-* Fixed memory leak in the HMS Sample
-* Resolved compilation errors of Sample header files in certain environments
-* Fixed unexpected crashes in C++ Sample when attempting to use unsupported features
-* Enhanced prompts for camera Sample file downloads
-* Optimized some improper uses of CMake in samples
-* Change firmware version numbers in the PSDK Sample now align across DJI Assistant 2 and Pilot 2.
-> Note: DJI Assistant 2 prevents firmware downgrading during payload upgrades. Ensure your upgrade package's name (the version number) is higher than the payload's reported firmware version.
-> To comply with DJI Assistant 2 verification: You can simply rename your payload firmware upgrade package to make it valid, or maintain the previous practice of independently setting a version number to be checked during upgrades.
-* In the STM32 FreeRTOS Sample, the heap size has been increased to 90,000 bytes.
-> This may cause startup or build failures on some devices. You can adjust the stack size according to the business requirements of your hardware.
+* GEO Caging feature supported for the M3D series models.
+* Flight control function and waypoint mission supported for the FlyCart 30 model.
+* Fixed an issue with subscribing to the flight control topics for M300 RTK and M350 RTK models.
+* Resolved a problem with DJI Smart Controller Enterprise not recognizing PSDK payload devices on M300 RTK.
+* Fixed an issue with acquiring the camera stream without I-frames on M3D series models.
+* Added the MOP 49154 channel as an alternative to the 49152 channel for subscribing to the L2 camera's real-time 3D point cloud. This enhancement avoids conflicts when subscribing to point cloud data concurrently with Pilot2 and improves the quality of the point cloud data.
+> Note: When using M300 RTK with the DJI Smart Controller Enterprise to activate payloads via the OSDK interface, the remote controller will not recognize the payload device if the virtual serial port is not utilized.
 
 ## License
 
