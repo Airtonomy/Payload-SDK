@@ -6,7 +6,7 @@ jobs:
 
   package:
     machine:
-      image: ubuntu-2004:202101-01
+      image: ubuntu-2004:2024.05.1
       docker_layer_caching: true
       # arm64 not supported.  Must use machine image with docker cli https://circleci.com/docs/using-arm/#limitations
     parameters:
